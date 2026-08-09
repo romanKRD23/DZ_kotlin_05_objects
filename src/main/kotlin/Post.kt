@@ -4,7 +4,7 @@ data class Post(
     val fromId: Int = 110,
     val createdBy: Int = 120,
     val date: Int = 1717300000,
-    val text: String = "test",
+    val content: String,
     val replyOwnerId: Int = 0,
     val replyPostId: Int = 0,
     val friendsOnly: Boolean = false
