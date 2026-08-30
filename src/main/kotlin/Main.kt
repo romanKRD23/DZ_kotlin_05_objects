@@ -1,4 +1,5 @@
 package ru.netology
+
 import Post
 
 object WallService {
@@ -10,12 +11,14 @@ object WallService {
         posts += postWithId
         return postWithId
     }
+
     fun update(post: Post): Boolean {
         val index = posts.indexOfFirst { it.id == post.id }
         if (index == -1) return false
         posts[index] = post.copy()
         return true
     }
+
     fun clear() {
         posts = emptyArray<Post>()
         nextId = 0
@@ -23,36 +26,36 @@ object WallService {
 
 }
 
-    fun main() {
-        val newPost = WallService.add(
-            Post(0, content = "Привет, это мой первый пост!")
-        )
-        println("Пост сохранен")
-        println("Текст поста: ${newPost.content}")
-        println("Его ID: ${newPost.id}")
+fun main() {
+    val newPost = WallService.add(
+        Post(0, content = "Привет, это мой первый пост!")
+    )
+    println("Пост сохранен")
+    println("Текст поста: ${newPost.content}")
+    println("Его ID: ${newPost.id}")
 
-        val secondPost = WallService.add(
-            Post(0, content = "Это текст второго поста")
-        )
+    val secondPost = WallService.add(
+        Post(0, content = "Это текст второго поста")
+    )
 
-        println("Пост #2 сохранен")
-        println("Текст поста: ${secondPost.content}")
-        println("Его ID: ${secondPost.id}")
+    println("Пост #2 сохранен")
+    println("Текст поста: ${secondPost.content}")
+    println("Его ID: ${secondPost.id}")
 
-        val secondPostLast = WallService.add(
-            Post(0, content = "Это текст следующего поста")
-        )
-        println("Пост #3 сохранен")
-        println("Текст поста: ${secondPostLast.content}")
-        println("Его ID: ${secondPostLast.id}")
+    val secondPostLast = WallService.add(
+        Post(0, content = "Это текст следующего поста")
+    )
+    println("Пост #3 сохранен")
+    println("Текст поста: ${secondPostLast.content}")
+    println("Его ID: ${secondPostLast.id}")
 
-        val updated = WallService.update(
-            newPost.copy(content = "Новый обновлённый текст")
-        )
+    val updated = WallService.update(
+        newPost.copy(content = "Новый обновлённый текст")
+    )
 
-        if (updated) {
-            println("Пост успешно обновлён")
-            } else {
-            println("Не удалось обновить пост (возможно, ID не найден)")
-        }
+    if (updated) {
+        println("Пост успешно обновлён")
+    } else {
+        println("Не удалось обновить пост (возможно, ID не найден)")
     }
+}

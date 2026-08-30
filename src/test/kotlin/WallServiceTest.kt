@@ -17,6 +17,7 @@ class WallServiceTest {
 
         assertEquals(1, first.id)
         assertEquals(2, second.id)
+    }
         @Test
         fun `update changes text and keeps id, returns true`() {
             val original = WallService.add(Post(id = 0, content = "Старый текст"))
@@ -40,4 +41,3 @@ class WallServiceTest {
         }
 
     }
-}

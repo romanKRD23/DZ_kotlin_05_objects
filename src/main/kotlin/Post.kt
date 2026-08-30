@@ -7,5 +7,6 @@ data class Post(
     val content: String,
     val replyOwnerId: Int = 0,
     val replyPostId: Int = 0,
-    val friendsOnly: Boolean = false
+    val friendsOnly: Boolean = false,
+    val likes: Likes = Likes(0, false, false,true)
 )
