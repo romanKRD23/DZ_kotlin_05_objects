@@ -28,14 +28,14 @@ object WallService {
 
 fun main() {
     val newPost = WallService.add(
-        Post(0, content = "Привет, это мой первый пост!")
+        Post(0, content = "Привет, это мой первый пост!", original = null)
     )
     println("Пост сохранен")
     println("Текст поста: ${newPost.content}")
     println("Его ID: ${newPost.id}")
 
     val secondPost = WallService.add(
-        Post(0, content = "Это текст второго поста")
+        Post(0, content = "Это текст второго поста", original = null)
     )
 
     println("Пост #2 сохранен")
@@ -43,7 +43,7 @@ fun main() {
     println("Его ID: ${secondPost.id}")
 
     val secondPostLast = WallService.add(
-        Post(0, content = "Это текст следующего поста")
+        Post(0, content = "Это текст следующего поста", original = null)
     )
     println("Пост #3 сохранен")
     println("Текст поста: ${secondPostLast.content}")
