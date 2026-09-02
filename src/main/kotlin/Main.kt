@@ -1,10 +1,13 @@
 package ru.netology
 
+import Comment
 import Post
+import PostNotFoundException
 
 object WallService {
     private var posts = emptyArray<Post>()
-    private var nextId = 0
+    public var comments = emptyArray<Comment>()
+    private var nextId = 1
 
     fun add(post: Post): Post {
         val postWithId = post.copy(id = ++nextId)
@@ -21,9 +24,16 @@ object WallService {
 
     fun clear() {
         posts = emptyArray<Post>()
-        nextId = 0
+        nextId = 1
     }
-
+    fun createComment (postId: Int, comment: Comment):Comment {
+        val postExists = posts.any { it.id == postId }
+        if (!postExists) {
+            throw PostNotFoundException ("Пост с id $postId не существует")
+        }
+        comments = comments.plus(comment)
+        return comment
+    }
 }
 
 fun main() {
@@ -58,4 +68,8 @@ fun main() {
     } else {
         println("Не удалось обновить пост (возможно, ID не найден)")
     }
+    val newComment= WallService.createComment(
+        3, comment = Comment(101, 1, 255, "Отличный пост!!!")
+    )
+    println(newComment)
 }

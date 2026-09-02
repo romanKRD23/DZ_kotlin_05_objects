@@ -1,4 +1,5 @@
 import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import ru.netology.WallService
@@ -37,7 +38,22 @@ class WallServiceTest {
 
             assertFalse("update должен вернуть false, если пост не найден", result)
 
-
         }
+    @Test
+    fun `createComment adds comment when post exists`() {
+        val postId=3
+        val comment = Comment(101, 1, 255, "Отличный пост!!!")
 
+        val result = WallService.createComment(3, comment)
+        assertEquals(1, WallService.comments.size)   // в массиве комментариев теперь 1 элемент
     }
+
+    @Test(expected = PostNotFoundException::class)
+    fun `createComment throws PostNotFoundException when post does not exist`() {
+        // Arrange
+        val nonExistingId = 999   // такого поста точно нет
+        val comment = Comment(id = 101, fromId = 3, date = 256, text = "Комментарий к несуществующему посту")
+
+        WallService.createComment(nonExistingId, comment)
+    }
+}
