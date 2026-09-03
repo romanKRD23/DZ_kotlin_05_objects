@@ -41,10 +41,11 @@ class WallServiceTest {
         }
     @Test
     fun `createComment adds comment when post exists`() {
-        val postId=3
+        val testPost = WallService.add(Post(1, original = null, content = "Ntcnjdsq gjcn"))
+        val postId=1
         val comment = Comment(101, 1, 255, "Отличный пост!!!")
 
-        val result = WallService.createComment(3, comment)
+        val result = WallService.createComment(1, comment)
         assertEquals(1, WallService.comments.size)   // в массиве комментариев теперь 1 элемент
     }
 

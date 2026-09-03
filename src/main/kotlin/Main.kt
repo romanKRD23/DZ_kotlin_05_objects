@@ -7,7 +7,7 @@ import PostNotFoundException
 object WallService {
     private var posts = emptyArray<Post>()
     public var comments = emptyArray<Comment>()
-    private var nextId = 1
+    private var nextId = 0
 
     fun add(post: Post): Post {
         val postWithId = post.copy(id = ++nextId)
@@ -24,7 +24,8 @@ object WallService {
 
     fun clear() {
         posts = emptyArray<Post>()
-        nextId = 1
+        comments = emptyArray<Comment>()
+        nextId = 0
     }
     fun createComment (postId: Int, comment: Comment):Comment {
         val postExists = posts.any { it.id == postId }
