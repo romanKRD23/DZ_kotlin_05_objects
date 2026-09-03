@@ -5,8 +5,10 @@ data class Post(
     val createdBy: Int = 120,
     val date: Int = 1717300000,
     val content: String,
+    val original: Post?,
     val replyOwnerId: Int = 0,
     val replyPostId: Int = 0,
     val friendsOnly: Boolean = false,
-    val likes: Likes = Likes(0, false, false,true)
+    val likes: Likes = Likes(0, false, false,true),
+    val attachments: Array<Attachment> = emptyArray()
 )
