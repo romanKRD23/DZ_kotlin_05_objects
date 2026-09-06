@@ -2,7 +2,7 @@ package ru.netology
 
 import Comment
 import Post
-import PostNotFoundException
+//import PostNotFoundException
 
 object WallService {
     private var posts = emptyArray<Post>()

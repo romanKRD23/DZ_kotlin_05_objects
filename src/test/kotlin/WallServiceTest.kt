@@ -2,6 +2,7 @@ import org.junit.Assert.*
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import ru.netology.PostNotFoundException
 import ru.netology.WallService
 
 class WallServiceTest {
