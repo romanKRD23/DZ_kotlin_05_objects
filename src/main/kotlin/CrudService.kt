@@ -2,7 +2,7 @@ package ru.netology
 
 abstract class CrudService<T : SoftDeletable> {
     protected val items = mutableListOf<T>()
-    protected var nextId = 0
+    protected var nextId = 1
 
     protected abstract fun copyWithId(item: T, id: Int): T
     protected abstract fun copyWithDeleted(item: T, deleted: Boolean): T
